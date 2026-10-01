@@ -1,0 +1,218 @@
+:root {
+  color-scheme: light;
+
+  /* Colour: ink on near-white, faintly cool. No accent. */
+  --bg: oklch(0.992 0.002 268);
+  --ink: oklch(0.22 0.012 268);
+  --ink-muted: oklch(0.48 0.012 268);
+  --line: oklch(0.84 0.006 268);
+  --selection: oklch(0.91 0.02 268);
+
+  /* Type: one face, one size, two weights. */
+  --font: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
+  --text: 0.9375rem;
+  --leading: 1.6;
+  --weight-regular: 400;
+  --weight-medium: 500;
+
+  /* Spacing: 4px base. */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-5: 1.25rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+  --space-24: 6rem;
+
+  --measure: 34rem;
+  --radius-focus: 0.125rem;
+
+  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+  --settle-duration: 360ms;
+  --settle-step: 60ms;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font);
+  font-size: var(--text);
+  font-weight: var(--weight-regular);
+  line-height: var(--leading);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: var(--selection);
+  color: var(--ink);
+}
+
+h1,
+h2,
+h3 {
+  font-size: inherit;
+  font-weight: var(--weight-medium);
+  text-wrap: balance;
+}
+
+p {
+  text-wrap: pretty;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+a {
+  position: relative;
+  color: inherit;
+  text-decoration-line: underline;
+  text-decoration-thickness: 1px;
+  text-decoration-color: var(--line);
+  text-underline-offset: 0.25em;
+  transition: text-decoration-color 150ms ease;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  a:hover {
+    text-decoration-color: var(--ink);
+  }
+}
+
+a:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 3px;
+  border-radius: var(--radius-focus);
+}
+
+/* Layout */
+
+.page {
+  max-width: calc(var(--measure) + 2 * var(--space-5));
+  margin-inline: auto;
+  padding: var(--space-16) var(--space-5);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-12);
+}
+
+@media (min-width: 640px) {
+  .page {
+    padding-block: var(--space-24);
+  }
+}
+
+.name {
+  font-weight: var(--weight-medium);
+}
+
+.muted,
+.heading {
+  color: var(--ink-muted);
+}
+
+.heading {
+  font-weight: var(--weight-regular);
+  margin-bottom: var(--space-6);
+}
+
+.bio {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+}
+
+/* Experience */
+
+.roles {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+}
+
+.role-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--space-6);
+}
+
+.years {
+  flex-shrink: 0;
+  color: var(--ink-muted);
+  font-variant-numeric: tabular-nums;
+}
+
+.summary {
+  margin-top: var(--space-1);
+}
+
+/* Links row */
+
+.links {
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: var(--space-6);
+  row-gap: var(--space-2);
+}
+
+/* Extend small link targets to a comfortable touch size without moving layout. */
+.company a::after,
+.links a::after {
+  content: "";
+  position: absolute;
+  inset: calc(-1 * var(--space-3)) calc(-1 * var(--space-2));
+}
+
+/* Arrival: the page settles in once. */
+
+.block {
+  animation: settle var(--settle-duration) var(--ease-out) backwards;
+}
+
+.block:nth-child(2) {
+  animation-delay: var(--settle-step);
+}
+
+.block:nth-child(3) {
+  animation-delay: calc(2 * var(--settle-step));
+}
+
+.block:nth-child(4) {
+  animation-delay: calc(3 * var(--settle-step));
+}
+
+@keyframes settle {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+    filter: blur(2px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .block {
+    animation: none;
+  }
+}
