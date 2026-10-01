@@ -56,6 +56,5 @@ export const experience: Role[] = [
 export const links = [
   { label: "Email", href: `mailto:${profile.email}` },
   { label: "LinkedIn", href: "https://www.linkedin.com/in/samwarrendev" },
-  { label: "GitHub", href: "https://github.com/sam-warren" },
   { label: "X", href: "https://x.com/samwarrendev" },
 ];

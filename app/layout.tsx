@@ -9,7 +9,7 @@ const sans = Host_Grotesk({
   variable: "--font-sans",
 });
 
-const description = `${profile.role} in Victoria, BC. Full-stack work for public services and energy.`;
+const description = `${profile.role} in Victoria, BC. Full-stack work for public services and private corporations.`;
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://samwarren.dev"),
