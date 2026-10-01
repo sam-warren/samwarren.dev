@@ -3,7 +3,7 @@ export const profile = {
   role: "Software engineer",
   email: "sam@junctiontech.ca",
   bio: [
-    "I’m a full-stack engineer from Victoria, BC. I design and build software for public services and energy companies, from the first sketch to production.",
+    "I’m a full-stack engineer from Victoria, BC. I design and build software for public services and private corporations.",
     "I’ve spent most of my career making government systems easier to use: road safety, health records, emergency support. Today I run Junction and build an energy data platform at Jupiter Power.",
   ],
 };
@@ -22,14 +22,14 @@ export const experience: Role[] = [
     href: "https://jupiterpower.io",
     title: "Full-stack engineer",
     years: "2026–now",
-    summary: "An energy data platform, from UX research to data architecture.",
+    summary: "An energy data platform.",
   },
   {
     company: "Junction",
     href: "https://junctiontech.ca",
     title: "Founder",
     years: "2025–now",
-    summary: "An independent consultancy building software for government ministries.",
+    summary: "An independent software consultancy.",
   },
   {
     company: "Vantix Systems",
