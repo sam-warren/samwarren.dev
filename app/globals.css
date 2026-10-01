@@ -30,8 +30,8 @@
   --radius-focus: 0.125rem;
 
   --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
-  --settle-duration: 360ms;
-  --settle-step: 60ms;
+  --settle-duration: 300ms;
+  --settle-step: 30ms;
 }
 
 *,
